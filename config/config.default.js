@@ -10,7 +10,7 @@ module.exports = appInfo => {
    * built-in config
    * @type {Egg.EggAppConfig}
    **/
-  const config = exports = {};
+  const config = (exports = {});
 
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1647315656074_5561';
@@ -28,12 +28,20 @@ module.exports = appInfo => {
     csrf: {
       enable: false,
     },
-    domainWhiteList: [ ],
+    domainWhiteList: [],
   };
   // 允许跨域方法
   config.cors = {
     origin: '*',
     allowMethods: 'GET, PUT,  POST, DELETE, PATCH',
+  };
+  // 连接数据库
+  config.mongoose = {
+    url: 'mongodb://127.0.0.1/wkitchen',
+    options: {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
   };
 
   return {
