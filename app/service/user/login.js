@@ -4,6 +4,8 @@ const Service = require('egg').Service;
 
 class LoginService extends Service {
   async index(account, password) {
+    console.log(account, password);
+    const { ctx } = this;
     let result = {
       code: 403,
       id: null,
@@ -16,6 +18,9 @@ class LoginService extends Service {
           id: data.id,
           msg: '登陆成功',
         };
+        ctx.cookies.set(data.id, data.password, {
+          maxAge: 1000 * 60 * 60 * 2,
+        });
       }
     });
 

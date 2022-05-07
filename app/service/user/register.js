@@ -21,7 +21,6 @@ class RegisterService extends Service {
     });
 
     if (isExist) {
-      console.log(isExist);
       result = {
         code: 202,
         msg: '账户已存在',

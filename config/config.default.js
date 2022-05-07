@@ -32,6 +32,7 @@ module.exports = appInfo => {
   };
   // 允许跨域方法
   config.cors = {
+    credentials: true,
     origin: '*',
     allowMethods: 'GET, PUT,  POST, DELETE, PATCH',
   };
